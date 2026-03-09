@@ -1,0 +1,574 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="ZeroWBC: Learning Natural Visuomotor Humanoid Control Directly from Human Egocentric Video"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="static/assets/favicon.svg" />
+    <title>ZeroWBC</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css" />
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+    />
+    <link rel="stylesheet" href="./static/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      .teaser-full {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        line-height: 0;
+        overflow: hidden;
+      }
+      .teaser-full img,
+      .teaser-full video {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+      .author-names {
+        font-family: 'Google Sans', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 2;
+        margin-bottom: 0.4rem;
+      }
+      .affiliation-block {
+        font-family: 'Google Sans', sans-serif;
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.9;
+        margin-bottom: 0.3rem;
+      }
+      .equal-contrib {
+        font-family: 'Google Sans', sans-serif;
+        font-size: 0.95rem;
+        color: #666;
+        margin-bottom: 0.4rem;
+      }
+      .section-title {
+        font-family: 'Google Sans', sans-serif;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      .figure-caption {
+        font-size: 1.05rem;
+        color: #333;
+        line-height: 1.6;
+        margin-top: 0.8rem;
+        text-align: justify;
+      }
+      .figure-caption b {
+        font-weight: 600;
+      }
+      .pdf-embed-wrapper {
+        width: 100%;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      }
+      .input-label {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: #222;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+      .experiment-labels-row {
+        display: flex;
+        gap: 1.5%;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+      .experiment-labels-row .input-label {
+        margin-bottom: 0;
+      }
+      .task-text {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-style: italic;
+        color: #222;
+        line-height: 1.4;
+        text-align: center;
+      }
+      .experiment-input-row {
+        display: flex;
+        gap: 1.5%;
+        align-items: center;
+        margin-bottom: 0.6rem;
+      }
+      .visual-input-img {
+        max-width: 58%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      }
+      .visual-input-note {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 0.8rem;
+        color: #555;
+        text-align: center;
+        margin-top: 0.35rem;
+        margin-bottom: 0;
+        line-height: 1.3;
+      }
+      .experiment-input-col {
+        flex: 1;
+        text-align: center;
+      }
+      .task-instruction-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .text-to-motion-title {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #222;
+        text-align: center;
+        margin-bottom: 0.35rem;
+      }
+      .text-to-motion-desc {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-style: italic;
+        color: #222;
+        text-align: center;
+        margin-bottom: 0.6rem;
+      }
+      .experiment-label {
+        font-family: 'Google Sans', sans-serif;
+        font-weight: bold;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        color: #222;
+      }
+      .video-container {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+      }
+      .video-container video {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- ========== FULL-WIDTH TEASER VIDEO ========== -->
+    <div class="teaser-full">
+      <video autoplay muted loop playsinline style="width:100%;height:auto;">
+        <source src="./static/assets/3_5.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- ========== TITLE & AUTHORS ========== -->
+    <section class="hero" style="padding-bottom: 0;">
+      <div class="hero-body" style="padding-bottom: 1rem;">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+
+              <h1 class="title is-2 publication-title" style="margin-bottom: 1.2rem; line-height: 1.35;">
+                ZeroWBC: Learning Natural Visuomotor Humanoid Control
+                Directly from Human Egocentric Video
+              </h1>
+
+              <!-- Author names row 1 -->
+              <div class="author-names">
+                <span>Haoran Yang<sup>1, 2 *</sup></span>&ensp;
+                <span>Jiacheng Bao<sup>2, 3 *</sup></span>&ensp;
+                <span>Yucheng Xin<sup>2, 4 *</sup></span>&ensp;
+                <span>Haoming Song<sup>2, 5</sup></span>
+              </div>
+              <!-- Author names row 2 -->
+              <div class="author-names">
+                <span>Yuyang Tian<sup>1, 2</sup></span>&ensp;
+                <span>Bin Zhao<sup>2, 3</sup></span>&ensp;
+                <span>Dong Wang<sup>2, †</sup></span>&ensp;
+                <span>Xuelong Li<sup>6</sup></span>
+              </div>
+
+              <!-- Affiliations row 1 -->
+              <div class="affiliation-block">
+                <sup>1</sup>University of Science and Technology of China&emsp;
+                <sup>2</sup>Shanghai AI Laboratory
+              </div>
+              <!-- Affiliations row 2 -->
+              <div class="affiliation-block">
+                <sup>3</sup>Northwestern Polytechnical University&emsp;
+                <sup>4</sup>Tsinghua University
+              </div>
+              <!-- Affiliations row 3 -->
+              <div class="affiliation-block">
+                <sup>5</sup>Shanghai Jiao Tong University&emsp;
+                <sup>6</sup>TeleAI, China Telecom
+              </div>
+
+              <!-- Equal contribution note -->
+              <div class="equal-contrib" style="margin-top: 0.5rem;">
+                <sup>*</sup>Equal contributions.&emsp;
+                <sup>†</sup>Corresponding author.
+              </div>
+
+              <!-- Paper & Code links -->
+              <div class="publication-links" style="margin-top: 1rem;">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2505.21432" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://zerowbc.github.io" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== OVERVIEW ========== -->
+    <section class="section" style="padding-top: 2rem; padding-bottom: 1.5rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full">
+
+            <h2 class="title is-3 has-text-centered section-title">Overview</h2>
+
+            <!-- Overview figure -->
+            <div class="pdf-embed-wrapper">
+              <img src="./static/assets/overview.png" alt="Overview of ZeroWBC" style="width: 100%; height: auto; display: block;" />
+            </div>
+
+            <!-- Overview caption -->
+            <p class="figure-caption">
+              <b>Overview of the ZeroWBC framework.</b>
+              We propose a novel framework that learns natural humanoid visuomotor control directly
+              from human egocentric videos. The pipeline takes an initial egocentric image and text
+              instruction as input (Left), synthesizes human whole-body motions via a fine-tuned
+              vision-language model (Middle), and executes robot motion on the Unitree G1 robot
+              using a robust general tracking policy (Right). ZeroWBC enables complex scene
+              interactions like kicking, sitting, and obstacle avoidance with zero real robot
+              teleoperation data.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PIPELINE ========== -->
+    <section class="section" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full">
+
+            <h2 class="title is-3 has-text-centered section-title">Method</h2>
+
+            <!-- Pipeline figure -->
+            <div class="pdf-embed-wrapper">
+              <img src="./static/assets/pipeline.png" alt="ZeroWBC Pipeline" style="width: 100%; height: auto; display: block;" />
+            </div>
+
+            <!-- Pipeline caption -->
+            <p class="figure-caption">
+              <b>Detailed architecture of ZeroWBC.</b>
+              The framework operates in two stages:
+              <b>(a) Multimodal Motion Generation:</b> We use a VQ-VAE and fine-tuned Qwen2.5-VL
+              to predict motion tokens from initial images and text instructions, decoding them
+              into continuous human motions.
+              <b>(b) General Motion Tracking:</b> Generated motions are retargeted and tracked by
+              an RL-based policy. A curriculum learning strategy with increasing difficulty ensures
+              robust tracking performance.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REAL ROBOT EXPERIMENTS ========== -->
+    <section class="section" style="padding-top: 1.5rem; padding-bottom: 3rem;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full">
+
+            <h2 class="title is-3 has-text-centered section-title">Real World Experiments</h2>
+
+            <!-- Row 0: Kick the ball (1) -->
+            <div style="margin-bottom: 2rem;">
+              <div class="experiment-labels-row">
+                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+              </div>
+              <div class="experiment-input-row">
+                <div class="experiment-input-col">
+                  <img src="./static/assets/1.jpg" alt="Input 1" class="visual-input-img" />
+                </div>
+                <div class="experiment-input-col task-instruction-col">
+                  <p class="task-text">Kick the ball into the goal</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/1_1.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/1_2.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+              </div>
+            </div>
+
+            <!-- Row 1: Kick the ball -->
+            <div style="margin-bottom: 2rem;">
+              <div class="experiment-labels-row">
+                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+              </div>
+              <div class="experiment-input-row">
+                <div class="experiment-input-col">
+                  <img src="./static/assets/2.jpg" alt="Input 2" class="visual-input-img" />
+                  <p class="visual-input-note">(Different from the previous ball placement position and the humanoid starting position)</p>
+                </div>
+                <div class="experiment-input-col task-instruction-col">
+                  <p class="task-text">Kick the ball into the goal</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/2_1.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/2_2.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+              </div>
+            </div>
+
+            <!-- Row 2: Avoid obstacle (3) -->
+            <div style="margin-bottom: 2rem;">
+              <div class="experiment-labels-row">
+                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+              </div>
+              <div class="experiment-input-row">
+                <div class="experiment-input-col">
+                  <img src="./static/assets/3.jpg" alt="Input 3" class="visual-input-img" />
+                </div>
+                <div class="experiment-input-col task-instruction-col">
+                  <p class="task-text">Avoid the obstacle and walk to the chair</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/3_1.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/3_2.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+              </div>
+            </div>
+
+            <!-- Row 3: Avoid obstacle (4) -->
+            <div style="margin-bottom: 2rem;">
+              <div class="experiment-labels-row">
+                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+              </div>
+              <div class="experiment-input-row">
+                <div class="experiment-input-col">
+                  <img src="./static/assets/4.jpg" alt="Input 4" class="visual-input-img" />
+                  <p class="visual-input-note">(Different from the previous obstacle placement position)</p>
+                </div>
+                <div class="experiment-input-col task-instruction-col">
+                  <p class="task-text">Avoid the obstacle and walk to the chair</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/4_1.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/4_2.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+              </div>
+            </div>
+
+            <!-- Row 4: Sofa sit -->
+            <div style="margin-bottom: 2rem;">
+              <div class="experiment-labels-row">
+                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+              </div>
+              <div class="experiment-input-row">
+                <div class="experiment-input-col">
+                  <img src="./static/assets/5.jpg" alt="Input 5" class="visual-input-img" />
+                </div>
+                <div class="experiment-input-col task-instruction-col">
+                  <p class="task-text">Walk towards the sofa, turn around and sit down</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/5_1.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/5_2.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+              </div>
+            </div>
+
+            <!-- Row 5: Sofa sit and stand -->
+            <div style="margin-bottom: 2rem;">
+              <div class="experiment-labels-row">
+                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+              </div>
+              <div class="experiment-input-row">
+                <div class="experiment-input-col">
+                  <img src="./static/assets/6.jpg" alt="Input 6" class="visual-input-img" />
+                  <p class="visual-input-note">(Different from the previous robot starting position and text instruction)</p>
+                </div>
+                <div class="experiment-input-col task-instruction-col">
+                  <p class="task-text">Walk towards the sofa, turn around, sit down and stand up immediately</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/6_1.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/6_2.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+              </div>
+            </div>
+
+            <!-- Row 6: Chair sit -->
+            <div style="margin-bottom: 2rem;">
+              <div class="experiment-labels-row">
+                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+              </div>
+              <div class="experiment-input-row">
+                <div class="experiment-input-col">
+                  <img src="./static/assets/7.jpg" alt="Input 7" class="visual-input-img" />
+                </div>
+                <div class="experiment-input-col task-instruction-col">
+                  <p class="task-text">Walk towards the chair, turn around and sit down</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/7_1.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+                <div style="flex: 1;"><div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/7_2.mp4" type="video/mp4" />
+                  </video>
+                </div></div>
+              </div>
+            </div>
+
+            <!-- Row 7: text-to-motion -->
+            <div style="margin-bottom: 2rem; text-align: center;">
+              <p class="text-to-motion-title">Text-to-Motion</p>
+              <p class="text-to-motion-desc">Squat down and raise your hands</p>
+              <div class="video-container" style="max-width: 100%;">
+                <video controls muted autoplay loop playsinline loading="lazy">
+                  <source src="./static/assets/8_1.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+
+            <!-- Row 8: text-to-motion -->
+            <div style="text-align: center;">
+              <p class="text-to-motion-desc">Raise arms and punch forward</p>
+              <div class="video-container" style="max-width: 100%;">
+                <video controls muted autoplay loop playsinline loading="lazy">
+                  <source src="./static/assets/9_1.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            This template is borrowed from
+            <a href="https://nerfies.github.io/"><span class="dnerf">Nerfies</span></a>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
