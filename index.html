@@ -11,7 +11,7 @@
     <title>ZeroWBC</title>
 
     <link
-      href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Google+Sans:wght@400;500;700&family=Noto+Sans&display=swap"
       rel="stylesheet"
     />
 
@@ -28,6 +28,7 @@
     />
 
     <style>
+      /* ===== Teaser ===== */
       .teaser-full {
         width: 100%;
         margin: 0;
@@ -42,95 +43,182 @@
         display: block;
         object-fit: cover;
       }
+
+      /* ===== Hero / Title Section ===== */
+      .hero-title-section {
+        background: linear-gradient(160deg, #eef2ff 0%, #f8fafc 55%, #ffffff 100%);
+      }
+      .publication-title {
+        font-family: 'Inter', 'Google Sans', sans-serif !important;
+        color: #0f172a !important;
+        letter-spacing: -0.028em;
+        line-height: 1.3 !important;
+      }
       .author-names {
-        font-family: 'Google Sans', sans-serif;
+        font-family: 'Inter', 'Google Sans', sans-serif;
         font-size: 1.25rem;
-        font-weight: 600;
-        line-height: 2;
-        margin-bottom: 0.4rem;
+        font-weight: 500;
+        line-height: 2.2;
+        margin-bottom: 0.25rem;
+        color: #1e293b;
       }
       .affiliation-block {
-        font-family: 'Google Sans', sans-serif;
-        font-size: 1rem;
-        color: #444;
-        line-height: 1.9;
-        margin-bottom: 0.3rem;
+        font-family: 'Inter', 'Google Sans', sans-serif;
+        font-size: 1.04rem;
+        color: #64748b;
+        line-height: 2;
+        margin-bottom: 0.2rem;
       }
       .equal-contrib {
-        font-family: 'Google Sans', sans-serif;
-        font-size: 0.95rem;
-        color: #666;
+        font-family: 'Inter', 'Google Sans', sans-serif;
+        font-size: 0.96rem;
+        color: #94a3b8;
         margin-bottom: 0.4rem;
       }
-      .section-title {
-        font-family: 'Google Sans', sans-serif;
-        font-weight: 700;
-        margin-bottom: 1rem;
+
+      /* ===== Section Headings ===== */
+      .section-heading-wrapper {
+        text-align: center;
+        margin-bottom: 1.75rem;
       }
+      .section-heading-wrapper::after {
+        content: '';
+        display: block;
+        width: 44px;
+        height: 3px;
+        background: linear-gradient(90deg, #2563eb, #06b6d4);
+        border-radius: 2px;
+        margin: 0.45rem auto 0;
+      }
+      .section-title {
+        font-family: 'Inter', 'Google Sans', sans-serif;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: -0.022em;
+        margin-bottom: 0;
+      }
+
+      /* ===== Figure Captions ===== */
       .figure-caption {
-        font-size: 1.05rem;
-        color: #333;
-        line-height: 1.6;
-        margin-top: 0.8rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.93rem;
+        color: #475569;
+        line-height: 1.78;
+        margin-top: 1rem;
         text-align: justify;
+        background: #f8fafc;
+        border-left: 3px solid #2563eb;
+        padding: 0.85rem 1.25rem;
+        border-radius: 0 8px 8px 0;
       }
       .figure-caption b {
         font-weight: 600;
+        color: #1e293b;
       }
+
+      /* ===== Figure Wrapper ===== */
       .pdf-embed-wrapper {
         width: 100%;
-        border-radius: 8px;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.10);
+        border: 1px solid #e2e8f0;
       }
+
+      /* ===== Category Groups (outer containers) ===== */
+      .category-group {
+        background: #f0f5ff;
+        border: 1.5px solid #c7d7f8;
+        border-radius: 20px;
+        padding: 1.5rem 1.75rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 24px rgba(37, 99, 235, 0.08);
+      }
+      .category-group-title {
+        font-family: 'Inter', 'Google Sans', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1e3a8a;
+        letter-spacing: -0.01em;
+        margin-bottom: 1.1rem;
+        padding-bottom: 0.55rem;
+        border-bottom: 1.5px solid #bfdbfe;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+      .category-group-title::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 1.15em;
+        background: linear-gradient(180deg, #2563eb, #06b6d4);
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+
+      /* ===== Experiment Cards (sub-cards within groups) ===== */
+      .experiment-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 8px rgba(15, 23, 42, 0.05);
+        transition: box-shadow 0.25s ease;
+      }
+      .experiment-card:last-child {
+        margin-bottom: 0;
+      }
+      .experiment-card:hover {
+        box-shadow: 0 4px 18px rgba(15, 23, 42, 0.10);
+      }
+
+      /* ===== Input Labels (pill badges) ===== */
       .input-label {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 1.75rem;
-        font-weight: 600;
-        color: #222;
-        text-align: center;
-        margin-bottom: 0.5rem;
+        display: inline-block;
+        font-family: 'Inter', 'Google Sans', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #1d4ed8;
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        border-radius: 100px;
+        padding: 0.25rem 1rem;
+        letter-spacing: 0.01em;
       }
       .experiment-labels-row {
         display: flex;
         gap: 1.5%;
         align-items: center;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.65rem;
       }
       .experiment-labels-row .input-label {
         margin-bottom: 0;
       }
+
+      /* ===== Task Text ===== */
       .task-text {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 1.5rem;
-        font-weight: 600;
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-size: 1.18rem;
+        font-weight: 400;
         font-style: italic;
-        color: #222;
-        line-height: 1.4;
+        color: #1e3a5f;
+        line-height: 1.65;
         text-align: center;
+        background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+        padding: 0.9rem 1.15rem;
+        border-radius: 10px;
+        border: 1.5px solid #bfdbfe;
+        border-top: 3px solid #2563eb;
       }
+
+      /* ===== Experiment Input Row ===== */
       .experiment-input-row {
         display: flex;
         gap: 1.5%;
         align-items: center;
-        margin-bottom: 0.6rem;
-      }
-      .visual-input-img {
-        max-width: 58%;
-        height: auto;
-        margin: 0 auto;
-        display: block;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      }
-      .visual-input-note {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 0.8rem;
-        color: #555;
-        text-align: center;
-        margin-top: 0.35rem;
-        margin-bottom: 0;
-        line-height: 1.3;
+        margin-bottom: 0.9rem;
       }
       .experiment-input-col {
         flex: 1;
@@ -140,41 +228,101 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-self: stretch;
+      }
+      .task-instruction-col .task-text {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* ===== Visual Input Image ===== */
+      .visual-input-img {
+        max-width: 58%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(15, 23, 42, 0.12);
+        border: 1px solid #e2e8f0;
+      }
+      .visual-input-note {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.86rem;
+        color: #94a3b8;
+        text-align: center;
+        width: 100%;
+        margin-top: 0.3rem;
+        margin-bottom: 0.6rem;
+        line-height: 1.4;
+      }
+
+      /* ===== Experiment Video Row ===== */
+      .experiment-videos-row {
+        display: flex;
+        gap: 1.5%;
+        align-items: flex-start;
+      }
+      .experiment-videos-row .video-col {
+        flex: 1;
+      }
+
+      /* ===== Text-to-Motion Card ===== */
+      .text-to-motion-card {
+        background: linear-gradient(135deg, #f0f9ff 0%, #eff6ff 100%);
+        border: 1px solid #bfdbfe;
+        border-radius: 16px;
+        padding: 1.4rem 1.6rem;
+        margin-bottom: 1.75rem;
+        text-align: center;
       }
       .text-to-motion-title {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 1.7rem;
+        font-family: 'Inter', 'Google Sans', sans-serif;
+        font-size: 1.3rem;
         font-weight: 700;
-        color: #222;
+        color: #0f172a;
+        letter-spacing: -0.01em;
         text-align: center;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.25rem;
       }
       .text-to-motion-desc {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 1.5rem;
-        font-weight: 600;
+        font-family: 'Georgia', serif;
+        font-size: 1.3rem;
+        font-weight: 400;
         font-style: italic;
-        color: #222;
+        color: #334155;
         text-align: center;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.85rem;
       }
-      .experiment-label {
-        font-family: 'Google Sans', sans-serif;
-        font-weight: bold;
-        font-size: 1rem;
-        text-align: center;
-        margin-bottom: 0.5rem;
-        color: #222;
-      }
+
+      /* ===== Video Containers ===== */
       .video-container {
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.10);
+        box-shadow: 0 3px 14px rgba(15, 23, 42, 0.12);
+        border: 1px solid #e2e8f0;
       }
       .video-container video {
         width: 100%;
         height: auto;
         display: block;
+      }
+
+      /* ===== Publication Links ===== */
+      .publication-links .button.is-dark {
+        background: #1e293b;
+        border-color: transparent;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        padding: 0.55em 1.3em;
+        transition: background 0.2s ease, transform 0.15s ease;
+      }
+      .publication-links .button.is-dark:hover {
+        background: #0f172a;
+        transform: translateY(-1px);
       }
     </style>
 
@@ -192,13 +340,13 @@
     </div>
 
     <!-- ========== TITLE & AUTHORS ========== -->
-    <section class="hero" style="padding-bottom: 0;">
-      <div class="hero-body" style="padding-bottom: 1rem;">
+    <section class="hero hero-title-section" style="padding-bottom: 0;">
+      <div class="hero-body" style="padding-bottom: 1.25rem;">
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column has-text-centered">
 
-              <h1 class="title is-2 publication-title" style="margin-bottom: 1.2rem; line-height: 1.35;">
+              <h1 class="title is-2 publication-title" style="margin-bottom: 1.3rem;">
                 ZeroWBC: Learning Natural Visuomotor Humanoid Control
                 Directly from Human Egocentric Video
               </h1>
@@ -235,13 +383,13 @@
               </div>
 
               <!-- Equal contribution note -->
-              <div class="equal-contrib" style="margin-top: 0.5rem;">
+              <div class="equal-contrib" style="margin-top: 0.55rem;">
                 <sup>*</sup>Equal contributions.&emsp;
                 <sup>†</sup>Corresponding author.
               </div>
 
               <!-- Paper & Code links -->
-              <div class="publication-links" style="margin-top: 1rem;">
+              <div class="publication-links" style="margin-top: 1.1rem;">
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/2505.21432" class="external-link button is-normal is-rounded is-dark" target="_blank">
                     <span class="icon">
@@ -267,12 +415,14 @@
     </section>
 
     <!-- ========== OVERVIEW ========== -->
-    <section class="section" style="padding-top: 2rem; padding-bottom: 1.5rem;">
+    <section class="section" style="padding-top: 2.5rem; padding-bottom: 2rem; background: #f8fafc;">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-full">
 
-            <h2 class="title is-3 has-text-centered section-title">Overview</h2>
+            <div class="section-heading-wrapper">
+              <h2 class="title is-3 section-title">Overview</h2>
+            </div>
 
             <!-- Overview figure -->
             <div class="pdf-embed-wrapper">
@@ -297,12 +447,14 @@
     </section>
 
     <!-- ========== PIPELINE ========== -->
-    <section class="section" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
+    <section class="section" style="padding-top: 2rem; padding-bottom: 2rem;">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-full">
 
-            <h2 class="title is-3 has-text-centered section-title">Method</h2>
+            <div class="section-heading-wrapper">
+              <h2 class="title is-3 section-title">Method</h2>
+            </div>
 
             <!-- Pipeline figure -->
             <div class="pdf-embed-wrapper">
@@ -327,230 +479,249 @@
     </section>
 
     <!-- ========== REAL ROBOT EXPERIMENTS ========== -->
-    <section class="section" style="padding-top: 1.5rem; padding-bottom: 3rem;">
+    <section class="section" style="padding-top: 2rem; padding-bottom: 3rem; background: #f8fafc;">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column is-full">
 
-            <h2 class="title is-3 has-text-centered section-title">Real World Experiments</h2>
+            <div class="section-heading-wrapper">
+              <h2 class="title is-3 section-title">Real World Experiments</h2>
+            </div>
 
-            <!-- Row 0: Kick the ball (1) -->
-            <div style="margin-bottom: 2rem;">
-              <div class="experiment-labels-row">
-                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
-                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
-              </div>
-              <div class="experiment-input-row">
-                <div class="experiment-input-col">
-                  <img src="./static/assets/1.jpg" alt="Input 1" class="visual-input-img" />
+            <!-- ══════════ Category Group: Kick the Ball ══════════ -->
+            <div class="category-group">
+              <h3 class="category-group-title">Kick Ball</h3>
+
+              <!-- Row 0: Kick the ball (1) -->
+              <div class="experiment-card">
+                <div class="experiment-labels-row">
+                  <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                  <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
                 </div>
-                <div class="experiment-input-col task-instruction-col">
-                  <p class="task-text">Kick the ball into the goal</p>
+                <div class="experiment-input-row">
+                  <div class="experiment-input-col">
+                    <img src="./static/assets/1.jpg" alt="Input 1" class="visual-input-img" />
+                  </div>
+                  <div class="experiment-input-col task-instruction-col">
+                    <p class="task-text">Kick the ball into the goal</p>
+                  </div>
+                </div>
+                <div class="experiment-videos-row">
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/1_1.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/1_2.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
                 </div>
               </div>
-              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/1_1.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/1_2.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
+
+              <!-- Row 1: Kick the ball (different position) -->
+              <div class="experiment-card">
+                <div class="experiment-labels-row">
+                  <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                  <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+                </div>
+                <div class="experiment-input-row">
+                  <div class="experiment-input-col">
+                    <img src="./static/assets/2.jpg" alt="Input 2" class="visual-input-img" />
+                  </div>
+                  <div class="experiment-input-col task-instruction-col">
+                    <p class="task-text">Kick the ball into the goal</p>
+                  </div>
+                </div>
+                <p class="visual-input-note">(Different from the previous ball placement position and the humanoid starting position)</p>
+                <div class="experiment-videos-row">
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/2_1.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/2_2.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                </div>
               </div>
             </div>
 
-            <!-- Row 1: Kick the ball -->
-            <div style="margin-bottom: 2rem;">
-              <div class="experiment-labels-row">
-                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
-                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
-              </div>
-              <div class="experiment-input-row">
-                <div class="experiment-input-col">
-                  <img src="./static/assets/2.jpg" alt="Input 2" class="visual-input-img" />
-                  <p class="visual-input-note">(Different from the previous ball placement position and the humanoid starting position)</p>
+            <!-- ══════════ Category Group: Navigation & Avoid Obstacle ══════════ -->
+            <div class="category-group">
+              <h3 class="category-group-title">Navigation &amp; Obstacle Avoidance</h3>
+
+              <!-- Row 2: Avoid obstacle (3) -->
+              <div class="experiment-card">
+                <div class="experiment-labels-row">
+                  <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                  <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
                 </div>
-                <div class="experiment-input-col task-instruction-col">
-                  <p class="task-text">Kick the ball into the goal</p>
+                <div class="experiment-input-row">
+                  <div class="experiment-input-col">
+                    <img src="./static/assets/3.jpg" alt="Input 3" class="visual-input-img" />
+                  </div>
+                  <div class="experiment-input-col task-instruction-col">
+                    <p class="task-text">Avoid the obstacle and walk to the chair</p>
+                  </div>
+                </div>
+                <div class="experiment-videos-row">
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/3_1.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/3_2.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
                 </div>
               </div>
-              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/2_1.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/2_2.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
+
+              <!-- Row 3: Avoid obstacle (4) -->
+              <div class="experiment-card">
+                <div class="experiment-labels-row">
+                  <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                  <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+                </div>
+                <div class="experiment-input-row">
+                  <div class="experiment-input-col">
+                    <img src="./static/assets/4.jpg" alt="Input 4" class="visual-input-img" />
+                  </div>
+                  <div class="experiment-input-col task-instruction-col">
+                    <p class="task-text">Avoid the obstacle and walk to the chair</p>
+                  </div>
+                </div>
+                <p class="visual-input-note">(Different from the previous obstacle placement position)</p>
+                <div class="experiment-videos-row">
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/4_1.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/4_2.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                </div>
               </div>
             </div>
 
-            <!-- Row 2: Avoid obstacle (3) -->
-            <div style="margin-bottom: 2rem;">
-              <div class="experiment-labels-row">
-                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
-                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
-              </div>
-              <div class="experiment-input-row">
-                <div class="experiment-input-col">
-                  <img src="./static/assets/3.jpg" alt="Input 3" class="visual-input-img" />
+            <!-- ══════════ Category Group: Sit ══════════ -->
+            <div class="category-group">
+              <h3 class="category-group-title">Sit Down</h3>
+
+              <!-- Row 4: Sofa sit -->
+              <div class="experiment-card">
+                <div class="experiment-labels-row">
+                  <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                  <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
                 </div>
-                <div class="experiment-input-col task-instruction-col">
-                  <p class="task-text">Avoid the obstacle and walk to the chair</p>
+                <div class="experiment-input-row">
+                  <div class="experiment-input-col">
+                    <img src="./static/assets/5.jpg" alt="Input 5" class="visual-input-img" />
+                  </div>
+                  <div class="experiment-input-col task-instruction-col">
+                    <p class="task-text">Walk towards the sofa, turn around and sit down</p>
+                  </div>
+                </div>
+                <div class="experiment-videos-row">
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/5_1.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/5_2.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
                 </div>
               </div>
-              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/3_1.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/3_2.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
+
+              <!-- Row 5: Sofa sit and stand -->
+              <div class="experiment-card">
+                <div class="experiment-labels-row">
+                  <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                  <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+                </div>
+                <div class="experiment-input-row">
+                  <div class="experiment-input-col">
+                    <img src="./static/assets/6.jpg" alt="Input 6" class="visual-input-img" />
+                  </div>
+                  <div class="experiment-input-col task-instruction-col">
+                    <p class="task-text">Walk towards the sofa, turn around, sit down and stand up immediately</p>
+                  </div>
+                </div>
+                <p class="visual-input-note">(Different from the previous robot starting position and text instruction)</p>
+                <div class="experiment-videos-row">
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/6_1.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/6_2.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                </div>
+              </div>
+
+              <!-- Row 6: Chair sit -->
+              <div class="experiment-card">
+                <div class="experiment-labels-row">
+                  <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
+                  <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
+                </div>
+                <div class="experiment-input-row">
+                  <div class="experiment-input-col">
+                    <img src="./static/assets/7.jpg" alt="Input 7" class="visual-input-img" />
+                  </div>
+                  <div class="experiment-input-col task-instruction-col">
+                    <p class="task-text">Walk towards the chair, turn around and sit down</p>
+                  </div>
+                </div>
+                <div class="experiment-videos-row">
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/7_1.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                  <div class="video-col"><div class="video-container">
+                    <video controls muted autoplay loop playsinline loading="lazy">
+                      <source src="./static/assets/7_2.mp4" type="video/mp4" />
+                    </video>
+                  </div></div>
+                </div>
               </div>
             </div>
 
-            <!-- Row 3: Avoid obstacle (4) -->
-            <div style="margin-bottom: 2rem;">
-              <div class="experiment-labels-row">
-                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
-                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
-              </div>
-              <div class="experiment-input-row">
-                <div class="experiment-input-col">
-                  <img src="./static/assets/4.jpg" alt="Input 4" class="visual-input-img" />
-                  <p class="visual-input-note">(Different from the previous obstacle placement position)</p>
-                </div>
-                <div class="experiment-input-col task-instruction-col">
-                  <p class="task-text">Avoid the obstacle and walk to the chair</p>
-                </div>
-              </div>
-              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/4_1.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/4_2.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-              </div>
-            </div>
+            <!-- ══════════ Category Group: Text-to-Motion ══════════ -->
+            <div class="category-group" style="margin-bottom: 0;">
+              <h3 class="category-group-title">Text-to-Motion</h3>
 
-            <!-- Row 4: Sofa sit -->
-            <div style="margin-bottom: 2rem;">
-              <div class="experiment-labels-row">
-                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
-                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
-              </div>
-              <div class="experiment-input-row">
-                <div class="experiment-input-col">
-                  <img src="./static/assets/5.jpg" alt="Input 5" class="visual-input-img" />
-                </div>
-                <div class="experiment-input-col task-instruction-col">
-                  <p class="task-text">Walk towards the sofa, turn around and sit down</p>
+              <div class="experiment-card" style="text-align: center;">
+                <p class="text-to-motion-desc">Squat down and raise your hands</p>
+                <div class="video-container">
+                  <video controls muted autoplay loop playsinline loading="lazy">
+                    <source src="./static/assets/8_1.mp4" type="video/mp4" />
+                  </video>
                 </div>
               </div>
-              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/5_1.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/5_2.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-              </div>
-            </div>
 
-            <!-- Row 5: Sofa sit and stand -->
-            <div style="margin-bottom: 2rem;">
-              <div class="experiment-labels-row">
-                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
-                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
-              </div>
-              <div class="experiment-input-row">
-                <div class="experiment-input-col">
-                  <img src="./static/assets/6.jpg" alt="Input 6" class="visual-input-img" />
-                  <p class="visual-input-note">(Different from the previous robot starting position and text instruction)</p>
-                </div>
-                <div class="experiment-input-col task-instruction-col">
-                  <p class="task-text">Walk towards the sofa, turn around, sit down and stand up immediately</p>
-                </div>
-              </div>
-              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
-                <div style="flex: 1;"><div class="video-container">
+              <div class="experiment-card" style="text-align: center;">
+                <p class="text-to-motion-desc">Raise arms and punch forward</p>
+                <div class="video-container">
                   <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/6_1.mp4" type="video/mp4" />
+                    <source src="./static/assets/9_1.mp4" type="video/mp4" />
                   </video>
-                </div></div>
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/6_2.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-              </div>
-            </div>
-
-            <!-- Row 6: Chair sit -->
-            <div style="margin-bottom: 2rem;">
-              <div class="experiment-labels-row">
-                <div class="experiment-input-col"><p class="input-label">Visual Input</p></div>
-                <div class="experiment-input-col"><p class="input-label">Task Instruction</p></div>
-              </div>
-              <div class="experiment-input-row">
-                <div class="experiment-input-col">
-                  <img src="./static/assets/7.jpg" alt="Input 7" class="visual-input-img" />
                 </div>
-                <div class="experiment-input-col task-instruction-col">
-                  <p class="task-text">Walk towards the chair, turn around and sit down</p>
-                </div>
-              </div>
-              <div style="display: flex; gap: 1.5%; align-items: flex-start;">
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/7_1.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-                <div style="flex: 1;"><div class="video-container">
-                  <video controls muted autoplay loop playsinline loading="lazy">
-                    <source src="./static/assets/7_2.mp4" type="video/mp4" />
-                  </video>
-                </div></div>
-              </div>
-            </div>
-
-            <!-- Row 7: text-to-motion -->
-            <div style="margin-bottom: 2rem; text-align: center;">
-              <p class="text-to-motion-title">Text-to-Motion</p>
-              <p class="text-to-motion-desc">Squat down and raise your hands</p>
-              <div class="video-container" style="max-width: 100%;">
-                <video controls muted autoplay loop playsinline loading="lazy">
-                  <source src="./static/assets/8_1.mp4" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-
-            <!-- Row 8: text-to-motion -->
-            <div style="text-align: center;">
-              <p class="text-to-motion-desc">Raise arms and punch forward</p>
-              <div class="video-container" style="max-width: 100%;">
-                <video controls muted autoplay loop playsinline loading="lazy">
-                  <source src="./static/assets/9_1.mp4" type="video/mp4" />
-                </video>
               </div>
             </div>
 
@@ -559,12 +730,12 @@
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" style="background: #0f172a; padding: 2rem 1.5rem;">
       <div class="container">
         <div class="content has-text-centered">
-          <p>
+          <p style="color: #94a3b8; font-family: 'Inter', sans-serif; font-size: 0.88rem;">
             This template is borrowed from
-            <a href="https://nerfies.github.io/"><span class="dnerf">Nerfies</span></a>.
+            <a href="https://nerfies.github.io/" style="color: #60a5fa;"><span class="dnerf">Nerfies</span></a>.
           </p>
         </div>
       </div>
