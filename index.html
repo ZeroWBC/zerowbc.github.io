@@ -309,6 +309,26 @@
         display: block;
       }
 
+      /* ===== ZeroWBC title word-mark ===== */
+      .title-zero {
+        color: #bdd3ef;
+        font-weight: 700;
+      }
+      .title-wbc {
+        color: #6b81d5;
+        font-weight: 700;
+      }
+
+      /* ===== Coming-soon tag ===== */
+      .coming-soon-text {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.76rem;
+        color: #94a3b8;
+        text-align: center;
+        margin-top: 0.3rem;
+        letter-spacing: 0.02em;
+      }
+
       /* ===== Publication Links ===== */
       .publication-links .button.is-dark {
         background: #1e293b;
@@ -347,7 +367,7 @@
             <div class="column has-text-centered">
 
               <h1 class="title is-2 publication-title" style="margin-bottom: 1.3rem;">
-                ZeroWBC: Learning Natural Visuomotor Humanoid Control
+                <span class="title-zero">Zero</span><span class="title-wbc">WBC</span>: Learning Natural Visuomotor Humanoid Control
                 Directly from Human Egocentric Video
               </h1>
 
@@ -399,11 +419,12 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://zerowbc.github.io" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <a href="https://zerowbc.github.io" class="external-link button is-normal is-rounded is-dark" target="_blank" style="padding-left: 1.6em; padding-right: 1.6em;">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
                     <span>Code</span>
+                    <span style="font-size: 0.72rem; opacity: 0.6; margin-left: 0.5em; letter-spacing: 0.02em;">(coming soon)</span>
                   </a>
                 </span>
               </div>
