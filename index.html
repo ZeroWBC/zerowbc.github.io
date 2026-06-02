@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="ZeroWBC: Learning Natural Visuomotor Humanoid Control Directly from Human Egocentric Video"
+      content="ZeroWBC: Learning Natural Whole-Body Humanoid Interaction from Human Egocentric Data"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="static/assets/favicon.svg" />
-    <title>ZeroWBC</title>
+    <title>ZeroWBC: Learning Natural Whole-Body Humanoid Interaction from Human Egocentric Data</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Google+Sans:wght@400;500;700&family=Noto+Sans&display=swap"
@@ -367,8 +367,7 @@
             <div class="column has-text-centered">
 
               <h1 class="title is-2 publication-title" style="margin-bottom: 1.3rem;">
-                <span class="title-zero">Zero</span><span class="title-wbc">WBC</span>: Learning Natural Visuomotor Humanoid Control
-                Directly from Human Egocentric Video
+                <span class="title-zero">Zero</span><span class="title-wbc">WBC</span>: Learning Natural Whole-Body Humanoid Interaction from Human Egocentric Data
               </h1>
 
               <!-- Author names row 1 -->
@@ -447,19 +446,16 @@
 
             <!-- Overview figure -->
             <div class="pdf-embed-wrapper">
-              <img src="./static/assets/overview.png" alt="Overview of ZeroWBC" style="width: 100%; height: auto; display: block;" />
+              <img src="./static/assets/overview_1.png" alt="Overview of ZeroWBC" style="width: 100%; height: auto; display: block;" />
             </div>
 
             <!-- Overview caption -->
             <p class="figure-caption">
               <b>Overview of the ZeroWBC framework.</b>
-              We propose a novel framework that learns natural humanoid visuomotor control directly
-              from human egocentric videos. The pipeline takes an initial egocentric image and text
-              instruction as input (Left), synthesizes human whole-body motions via a fine-tuned
-              vision-language model (Middle), and executes robot motion on the Unitree G1 robot
-              using a robust general tracking policy (Right). ZeroWBC enables complex scene
-              interactions like kicking, sitting, and obstacle avoidance with zero real robot
-              teleoperation data.
+              The pipeline takes an initial egocentric image and text instruction as input (Left),
+              synthesizes human whole-body motions via a fine-tuned vision-language model (Middle),
+              and executes robot actions on the Unitree G1 robot using a general interactive
+              tracking policy (Right).
             </p>
 
           </div>
@@ -479,19 +475,16 @@
 
             <!-- Pipeline figure -->
             <div class="pdf-embed-wrapper">
-              <img src="./static/assets/pipeline.png" alt="ZeroWBC Pipeline" style="width: 100%; height: auto; display: block;" />
+              <img src="./static/assets/pipeline_1.png" alt="ZeroWBC Pipeline" style="width: 100%; height: auto; display: block;" />
             </div>
 
             <!-- Pipeline caption -->
             <p class="figure-caption">
               <b>Detailed architecture of ZeroWBC.</b>
-              The framework operates in two stages:
-              <b>(a) Multimodal Motion Generation:</b> We use a VQ-VAE and fine-tuned Qwen2.5-VL
-              to predict motion tokens from initial images and text instructions, decoding them
-              into continuous human motions.
-              <b>(b) General Motion Tracking:</b> Generated motions are retargeted and tracked by
-              an RL-based policy. A curriculum learning strategy with increasing difficulty ensures
-              robust tracking performance.
+              (a) A fine-tuned Qwen-VL predicts motion tokens from an initial egocentric image and
+              language instruction, which are decoded into continuous human whole-body motions.
+              (b) The generated motions are retargeted to the humanoid and executed by an RL-based
+              policy that tracks both robot reference motions and interaction-relevant body parts.
             </p>
 
           </div>
@@ -751,7 +744,17 @@
       </div>
     </section>
 
-    <footer class="footer" style="background: #0f172a; padding: 1.25rem 1.5rem;"></footer>
+    <footer class="footer" style="background: #f8fafc; padding: 2rem 1.5rem;">
+      <div class="container is-max-desktop">
+        <h2 class="title is-4" style="color: #0f172a; margin-bottom: 1rem;">Citation</h2>
+        <pre style="background: #ffffff; color: #0f172a; border: 1px solid #e2e8f0; border-radius: 6px; padding: 1rem; overflow-x: auto; white-space: pre-wrap;"><code>@article{yang2026zerowbc,
+  title={Zerowbc: Learning natural visuomotor humanoid control directly from human egocentric video},
+  author={Yang, Haoran and Bao, Jiacheng and Xin, Yucheng and Song, Haoming and Tian, Yuyang and Zhao, Bin and Wang, Dong and Li, Xuelong},
+  journal={arXiv preprint arXiv:2603.09170},
+  year={2026}
+}</code></pre>
+      </div>
+    </footer>
 
   </body>
 </html>
